@@ -16,22 +16,24 @@
         
         <div class="logo">
             <img src="/assets/images/logo.png" alt="logo">
-            <span>Schultz Lawncare</span>
+            <span>Schultz Property Services LLC</span>
         </div>
             <ul class="nav-links">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Customer Reviews</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#reviews">Customer Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
             </ul>
     </nav>
 
-    <section class="main-section">
+    <section class="main-section" id="about">
         <div class="left">
-            <h1>Welcome to Schultz Lawncare  Growing with You Since 2025</h1>
-            <p>At Schultz Lawncare, we take pride in delivering top-
-                quality lawn care services tailored to your needs. 
+            <h1>Welcome to <b><span class="gradient">Schultz Lawncare</span></b> 
+                <br>
+                Growing with You Since 2025</h1>
+            <p>At Schultz Lawncare, we take pride in delivering top - quality
+                lawn care services tailored to your needs. 
                 Founded in 2025, our business has rapidly grown to 
-                serve over 25+ satisfied clients who trust us for 
+                serve over <b><span class="gradient">25+</span></b> satisfied clients who trust us for 
                 reliable, professional, and detail-oriented care. 
                 Whether you need regular maintenance or a seasonal 
                 makeover, our dedicated team is here to help your 
@@ -43,12 +45,230 @@
             <img src="/assets/images/left-mower.png" alt="mower-image">
         </div>
     </section>
+    <section class="carousel-section">
+  <h2>Our Work in Action</h2>
+  <div class="carousel">
+    <button class="carousel-btn prev">&#10094;</button>
+    <div class="carousel-track-container">
+      <ul class="carousel-track">
+        <li class="carousel-slide"><img src="/assets/images/work1.png" alt="Mowing 1"></li>
+        <li class="carousel-slide"><img src="/assets/images/work2.png" alt="Mowing 2"></li>
+        <li class="carousel-slide"><img src="/assets/images/work3.png" alt="Mowing 3"></li>
+        <li class="carousel-slide"><img src="/assets/images/work4.png" alt="Mowing 4"></li>
+        <li class="carousel-slide"><video src="/assets/videos/mowing.mp4" autoplay muted loop></video></li>
+      </ul>
+    </div>
+    <button class="carousel-btn next">&#10095;</button>
+  </div>
+</section>
+    
 
         <!--Customer Review-->
-    <section>
-
+    <section class="reviews-section" id="reviews">
+        <h2>What Our Customers Say</h2>
+        <div class="reviews-grid">
+            <article class="review-card">
+                <p>"Schultz Lawncare transformed my yard! Reliable, professional, and friendly service."</p>
+                <span>- Jamie L.</span>
+            </article>
+            <article class="review-card">
+                <p>"Highly recommend! They've been taking care of my lawn for months and always do a great job."</p>
+                <span>- Mark T.</span>
+            </article>
+            <article class="review-card">
+                <p>"The team is prompt and thorough. My lawn looks better than ever. Fantastic experience."</p>
+                <span>- Sarah K.</span>
+            </article>
+            <article class="review-card">
+                <p>"Excellent service and attention to detail. I’m a very happy customer."</p>
+                <span>- David W.</span>
+            </article>
+        </div>
     </section>
-    
-</body>
+
+    <!-- Form Structure -->
+    <section class="cta-section" id="contact">
+        <h2>Ready to Transform Your Lawn?</h2>
+        <div class="form-container">
+        <form class="quote-form" action="https://formspree.io/f/xrbkyonz" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="3" placeholder="Street, City, Zip"></textarea>
+
+            <label for="notes">Additional Notes:</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Anything else you'd like us to know?"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+        <p class="success-message" hidden>Thank you for reaching out! We'll get back to you soon.</p>
+        </div>
+    </section>
+
+
+
+
+     <footer>
+    <p>
+      Contact us at
+      <a href="mailto:info@schultzlawncare.com">info@schultzlawncare.com</a> or
+      call (555) 123-4567
+    </p>
+    <p>© 2025 Schultz Lawncare LLC. All rights reserved.</p>
+    <div class="social-links" role="list">
+      <a href="#" aria-label="Facebook" role="listitem" tabindex="0">
+        <!-- Facebook SVG icon -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M22.675 0h-21.35C.6 0 0 .6 0 1.344v21.312C0 23.4.6 24 1.325 24H12.82v-9.294H9.692V11.01h3.128V8.413c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.463.1 2.795.144v3.24l-1.918.001c-1.504 0-1.796.716-1.796 1.764v2.31h3.588l-.467 3.696h-3.121V24h6.116c.724 0 1.324-.6 1.324-1.344V1.344C24 .6 23.4 0 22.675 0z"
+          />
+        </svg>
+        Facebook
+      </a>
+      <a href="#" aria-label="Instagram" role="listitem" tabindex="0">
+        <!-- Instagram SVG icon -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm8.828 2.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"
+          />
+        </svg>
+        Instagram
+      </a>
+      <a href="#" aria-label="Twitter" role="listitem" tabindex="0">
+        <!-- Twitter SVG icon -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M23 3a10.9 10.9 0 01-3.14.86 5.48 5.48 0 002.4-3.02 10.88 10.88 0 01-3.44 1.32 5.46 5.46 0 00-9.3 4.97 15.49 15.49 0 01-11.24-5.7 5.44 5.44 0 001.69 7.29A5.42 5.42 0 012 9.7v.07a5.46 5.46 0 004.38 5.35 5.47 5.47 0 01-2.46.09 5.46 5.46 0 005.1 3.78 10.96 10.96 0 01-6.8 2.34A10.86 10.86 0 010 19.54 15.46 15.46 0 008.39 21c10.07 0 15.59-8.35 15.59-15.59 0-.24-.01-.48-.02-.71A11.18 11.18 0 0023 3z"
+          />
+        </svg>
+        Twitter
+      </a>
+    </div>
+  </footer>
+
+    <!-- Carousel Script -->
+    <script>
+        const track = document.querySelector(".carousel-track");
+        const slides = Array.from(track.children);
+        const nextButton = document.querySelector(".carousel-btn.next");
+        const prevButton = document.querySelector(".carousel-btn.prev");
+        let currentSlide = 0;
+        let startX = 0;
+
+        let isDragging = false;
+
+        track.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        });
+
+        track.addEventListener('touchmove', e => {
+        if (!isDragging) return;
+        const currentX = e.touches[0].clientX;
+        const diff = startX - currentX;
+        if (diff > 30) {
+            nextButton.click();
+            isDragging = false;
+        } else if (diff < -30) {
+            prevButton.click();
+            isDragging = false;
+        }
+        });
+
+        track.addEventListener('touchend', () => {
+        isDragging = false;
+        });
+
+        function updateSlidePosition() {
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        track.style.transform = "translateX(-" + slideWidth * currentSlide + "px)";
+        }
+
+        nextButton.addEventListener("click", () => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlidePosition();
+        });
+
+        prevButton.addEventListener("click", () => {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlidePosition();
+        });
+
+        window.addEventListener("resize", updateSlidePosition);
+        window.addEventListener("load", updateSlidePosition);
+
+        // Fade-in on scroll helper
+        const faders = document.querySelectorAll(".fade-in-section");
+        const options = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px",
+        };
+
+        const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+            return;
+            } else {
+            entry.target.classList.add("is-visible");
+            appearOnScroll.unobserve(entry.target);
+            }
+        });
+        }, options);
+
+        faders.forEach((fader) => {
+        appearOnScroll.observe(fader);
+        });
+
+        let autoPlayInterval = setInterval(() => {
+        nextButton.click();
+        }, 3000); // Change slide every 5 seconds
+
+        // Optional: Pause auto-play on mouse enter, resume on mouse leave
+        const carousel = document.querySelector('.carousel');
+
+        carousel.addEventListener('mouseenter', () => {
+        clearInterval(autoPlayInterval);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+        autoPlayInterval = setInterval(() => {
+            nextButton.click();
+        }, 3000);
+        });
+
+    </script>
+    </body>
 </html>
+
 
