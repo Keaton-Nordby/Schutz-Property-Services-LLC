@@ -20,6 +20,7 @@
         </div>
             <ul class="nav-links">
                     <li><a href="#about">About</a></li>
+                    <li><a href="#quote">Estimated Quote</a></li>
                     <li><a href="#reviews">Customer Reviews</a></li>
                     <li><a href="#contact">Contact</a></li>
             </ul>
@@ -72,11 +73,16 @@
         <div class="quote-calculator-box">
           <form id="quote-form" class="quote-form">
 
-            <label for="acreInput">Property Size (sq ft):</label>
-            <input type="number" id="acreInput" min="100" step="10" placeholder="e.g. 2000">
+            <label for="acreInput">Property Size (acres):</label>
+            <input type="number" id="acreInput" min="0.01" step="0.01" placeholder="e.g. 0.5">
+            <div id="acreError" class="error-message"></div>
+
+
 
             <label for="locationInput">Your City:</label>
             <input type="text" id="locationInput" placeholder="Enter your city">
+            <div id="locationError" class="error-message"></div>
+
 
             <label for="conditionSelect">Grass Condition:</label>
             <select id="conditionSelect">
@@ -214,42 +220,146 @@
     </div>
   </footer>
 
-    <!-- Carousel Script -->
+
     <script>
 
         // quote generator
         // calling DOM
+        // DOM elements
         const acreInput = document.getElementById("acreInput");
+        const locationInput = document.getElementById("locationInput");
         const conditionSelect = document.getElementById("conditionSelect");
         const quoteTotal = document.getElementById("quoteTotal");
         const checkboxes = document.querySelectorAll(".quote-services input[type='checkbox']");
         const form = document.getElementById("quote-form");
 
+        // Fees per city
+        const cityFees = {
+          "belle plaine": 0,
+          "jordan": 10,
+          "shakopee": 15,
+          "eden prairie": 20,
+          "minnetonka": 20,
+          "mendota heights": 25,
+          "minneapolis": 25,
+          "burnsville": 30,
+          "lakeville": 30,
+          "apple valley": 30,
+          "eagan": 35,
+          "rosemount": 35,
+          "west st. paul": 40,
+          "south st. paul": 40,
+          "westonka": 20,
+          "chaska": 15,
+          "carver": 15,
+          "prior lake": 25,
+          "savannah": 50,
+          "new ulm": 55
+        };
+
+        const DEFAULT_DRIVE_FEE = 40; // default fee for unknown but valid cities
+
+        // Helper to create or update error messages
+        function createErrorMessage(id, text, referenceInput) {
+          let el = document.getElementById(id);
+          if (!el) {
+            el = document.createElement("div");
+            el.id = id;
+            el.style.color = "red";
+            el.style.fontSize = "0.9em";
+            el.style.marginTop = "4px";
+            referenceInput.parentNode.insertBefore(el, referenceInput.nextSibling);
+          }
+          el.textContent = text;
+          return el;
+        }
+
+        // Helper to clear error message
+        function clearErrorMessage(id) {
+          const el = document.getElementById(id);
+          if (el) el.textContent = "";
+        }
+
+        // Helper to show optional message about drive fee
+        function showDriveFeeNote(show) {
+          let note = document.getElementById("driveFeeNote");
+          if (!note) {
+            note = document.createElement("div");
+            note.id = "driveFeeNote";
+            note.style.color = "orange";
+            note.style.fontSize = "0.9em";
+            note.style.marginTop = "6px";
+            quoteTotal.parentNode.insertBefore(note, quoteTotal.nextSibling);
+          }
+          note.textContent = show
+            ? "Note: An additional standard travel fee applies for your location."
+            : "";
+        }
+
         form.addEventListener("input", calculateQuote);
 
         function calculateQuote() {
-          const sqFeet = parseFloat(acreInput.value) || 0;
-          const privePerSqFt = 40 / 43560;
+          let valid = true;
+
+          // Validate acres
+          const acres = parseFloat(acreInput.value);
+          if (isNaN(acres) || acres <= 0) {
+            createErrorMessage("acreError", "Please enter a valid property size in acres greater than 0.", acreInput);
+            valid = false;
+          } else {
+            clearErrorMessage("acreError");
+          }
+
+          // Validate location
+          const cityInput = locationInput.value.trim().toLowerCase();
+          if (!cityInput) {
+            createErrorMessage("locationError", "Please enter your city.", locationInput);
+            valid = false;
+            showDriveFeeNote(false);
+          } else {
+            clearErrorMessage("locationError");
+          }
+
+          if (!valid) {
+            quoteTotal.textContent = "Please fix errors above to see the estimate.";
+            showDriveFeeNote(false);
+            return;
+          }
+
+          // Determine drive fee
+          let driveFee;
+          if (cityFees.hasOwnProperty(cityInput)) {
+            driveFee = cityFees[cityInput];
+            showDriveFeeNote(false);
+          } else {
+            // Unknown city but input provided: apply default fee and show note
+            driveFee = DEFAULT_DRIVE_FEE;
+            showDriveFeeNote(true);
+          }
+
+          // Base price per acre
+          const pricePerAcre = 40;
           const conditionMultiplier = parseFloat(conditionSelect.value);
 
-          // calc the base cost of lawn
-          let total = sqFeet * privePerSqFt * conditionMultiplier;
+          // Calculate total price
+          let total = acres * pricePerAcre * conditionMultiplier;
+          total += driveFee;
 
-          // add in extra service if selected
+          // Add selected extra services
           checkboxes.forEach(cb => {
             if (cb.checked) {
-              total += parseFloat(cb.value)
+              total += parseFloat(cb.value);
             }
           });
 
-          // minimum charge of $50 no matter what
-          if (total < 50 && sqFeet > 0) {
-            total = 50
+          // Minimum $50 charge
+          if (total < 50) {
+            total = 50;
           }
 
-          quoteTotal.textContent = `Estimated Price: ${total.toFixed(2)}`;
-
+          quoteTotal.textContent = `Estimated Price: $${total.toFixed(2)}`;
         }
+
 
 
         // Carousel Script
