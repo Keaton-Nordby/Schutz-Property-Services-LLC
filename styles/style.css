@@ -1,4 +1,4 @@
-/* === RESET & BASE === */
+/* Root */
 *,
 *::before,
 *::after {
@@ -35,7 +35,7 @@ a:focus {
   outline: none;
 }
 
-/* === NAVBAR === */
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -99,7 +99,7 @@ a:focus {
   box-shadow: 0 0 10px #76c893aa;
 }
 
-/* === MAIN SECTION === */
+/* Main section */
 .main-section {
   max-width: 1200px;
   margin: 3rem auto;
@@ -170,7 +170,7 @@ a:focus {
   transform: scale(1.05);
 }
 
-/* === CAROUSEL SECTION === */
+/* Video playback section */
 .carousel-section {
   max-width: 1200px;
   margin: 4rem auto 6rem;
@@ -267,7 +267,108 @@ a:focus {
   right: 10px;
 }
 
-/* === REVIEWS SECTION === */
+/* Quote Section */
+.quote-calculator-section {
+  padding: 4rem 1.5rem;
+  background-color: #f4f9f4;
+}
+
+.quote-calculator-container {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quote-calculator-title {
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+  color: #1b4d1b;
+  text-shadow: 0 1px 4px rgba(114, 194, 139, 0.3);
+}
+
+.quote-calculator-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #3b5c3b;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quote-calculator-box {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.quote-form label,
+.quote-form select,
+.quote-form input {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.quote-form input,
+.quote-form select {
+  padding: 0.6rem 0.9rem;
+  border: 1.5px solid #a0d38a;
+  border-radius: 12px;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quote-form input:focus,
+.quote-form select:focus {
+  border-color: #2a6f3e;
+  box-shadow: 0 0 8px #76c893aa;
+  outline: none;
+}
+
+.quote-services {
+  margin-top: 1.2rem;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.quote-services label {
+  display: block;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.quote-result {
+  margin-top: 1.8rem;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #1b4d1b;
+}
+
+.quote-note {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+@media (max-width: 480px) {
+  .quote-calculator-box {
+    padding: 1.5rem;
+  }
+
+  .quote-form label {
+    font-size: 1.1rem;
+  }
+
+  .quote-services label {
+    font-size: 1rem;
+  }
+}
+
+
+/* Review Section */
 .reviews-section {
   max-width: 1200px;
   margin: 4rem auto;
@@ -325,7 +426,7 @@ a:focus {
   text-align: right;
 }
 
-/* === CTA SECTION === */
+/* call to action section */
 .cta-section {
   max-width: 600px;
   margin: 4rem auto 6rem;
@@ -425,7 +526,7 @@ a:focus {
   text-align: center;
 }
 
-/* === FOOTER === */
+/* footer section */
 footer {
   background: #1f4e27;
   color: whitesmoke;
@@ -480,7 +581,7 @@ footer a:focus {
   outline: none;
 }
 
-/* === RESPONSIVE === */
+/* responsive stuff etc.. */
 @media (max-width: 900px) {
   .main-section {
     flex-direction: column;
@@ -545,7 +646,7 @@ footer a:focus {
   }
 }
 
-/* === SMOOTH SCROLL === */
+/* scrolling */
 html {
   scroll-behavior: smooth;
 }
@@ -564,7 +665,7 @@ html {
   transform: translateY(0);
 }
 
-/* Social links inline svg tweak */
+/* Social links inline svg's */
 .social-links svg {
   vertical-align: middle;
   margin-right: 8px;
